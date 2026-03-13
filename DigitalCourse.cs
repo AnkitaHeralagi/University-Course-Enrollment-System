@@ -1,25 +1,30 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using static System.Net.WebRequestMethods;
 
-class DigitalCourse : CoreCourse
+namespace University_Course_Enrollment_System
 {
-    private string streamLink;
-    public DigitalCourse(string title, string link) : base(title)
+    internal class DigitalCourse : CoreCourse
     {
-        streamLink = link;
-    }
-    public override void EnrollParticipant()
-    {
-        if (streamLink.StartsWith("http://") || streamLink.StartsWith("https://"))
+        private string streamLink;
+        public DigitalCourse(string title, string link) : base(title)
         {
-            Console.WriteLine("\nEnrollment Approved!");
-            Console.WriteLine("Course Mode : Online");
-            Console.WriteLine("Course Name : " + title);
-            Console.WriteLine("Video Link  : " + streamLink);
+            streamLink = link;
         }
-        else
+        public override void EnrollParticipant()
         {
-            Console.WriteLine("Invalid video platform link. Use http:// or https://");
+            if (streamLink.StartsWith("http://") || streamLink.StartsWith("https://"))
+            {
+                Console.WriteLine("\nEnrollment Approved!");
+                Console.WriteLine("Course Mode : Online");
+                Console.WriteLine("Course Name : " + title);
+                Console.WriteLine("Video Link  : " + streamLink);
+            }
+            else
+            {
+                Console.WriteLine("Invalid video platform link. Use http:// or https://");
+            }
         }
     }
 }
