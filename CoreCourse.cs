@@ -1,12 +1,17 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-abstract class CoreCourse
+namespace University_Course_Enrollment_System
 {
-    protected string title;
-
-    public CoreCourse(string courseTitle)
+    abstract class CoreCourse
     {
-        title = courseTitle;
+        protected string title;
+
+        public CoreCourse(string courseTitle)
+        {
+            title = courseTitle;
+        }
+        public abstract void EnrollParticipant();
     }
-    public abstract void EnrollParticipant();
 }
