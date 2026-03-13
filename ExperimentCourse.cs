@@ -1,25 +1,29 @@
-﻿using System;
-using static System.Net.WebRequestMethods;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-class ExperimentCourse : CoreCourse
+namespace University_Course_Enrollment_System
 {
-    private bool safetyDone;
-    public ExperimentCourse(string title, bool safetyStatus) : base(title)
+    internal class ExperimentCourse : CoreCourse
     {
-        safetyDone = safetyStatus;
-    }
-    public override void EnrollParticipant()
-    {
-        if (safetyDone)
+        private bool safetyDone;
+        public ExperimentCourse(string title, bool safetyStatus) : base(title)
         {
-            Console.WriteLine("\nEnrollment Approved!");
-            Console.WriteLine("Course Mode : Laboratory");
-            Console.WriteLine("Course Name : " + title);
-            Console.WriteLine("Safety Training : Completed");
+            safetyDone = safetyStatus;
         }
-        else
+        public override void EnrollParticipant()
         {
-            Console.WriteLine("Enrollment denied. Safety training required.");
+            if (safetyDone)
+            {
+                Console.WriteLine("\nEnrollment Approved!");
+                Console.WriteLine("Course Mode : Laboratory");
+                Console.WriteLine("Course Name : " + title);
+                Console.WriteLine("Safety Training : Completed");
+            }
+            else
+            {
+                Console.WriteLine("Enrollment denied. Safety training required.");
+            }
         }
     }
 }
